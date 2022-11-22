@@ -1,0 +1,44 @@
+{
+  "name": "e-ink helper",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "A chrome extension to make UI color more suitable for e-ink screen (such as Paperlike-pro) rendering.",
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_title": "e-ink helper",
+    "default_popup": "popup.html"
+  },
+  "commands": {
+  },
+  "permissions": [
+    "tabs",
+    "http://*/*",
+    "https://*/*",
+    "https://www.jianshu.com/*",
+    "http://www.jianshu.com/*",
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "watch.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://www.jianshu.com/*",
+        "http://www.jianshu.com/*"
+      ],
+      "js": [
+        "jianshu.js"
+      ],
+      "css": [
+        "jianshu.css"
+      ]
+    }
+  ]
+}
